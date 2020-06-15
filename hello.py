@@ -1,9 +1,9 @@
 def app(environ, start_response):
-    q_string = environ.get('QUERY_STRING')
-    pairs_list = q_string.split("&")
+    sstr = environ.get('QUERY_STRING').split("&")
     body = ""
-    for pair in pairs_list:
+    for pair in sstr:
         body += pair + "\n"
     response_string = [('Content-type', 'text/plain')]
     start_response('200 OK', response_string)
+    print(body.strip())
     return [body.strip()]
