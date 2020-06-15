@@ -5,5 +5,5 @@ def app(environ, start_response):
         body += pair + "\n"
     response_string = [('Content-type', 'text/plain')]
     start_response('200 OK', response_string)
-    print(body.strip())
+    print(bytes(body.strip()))
     return [body.strip()]
