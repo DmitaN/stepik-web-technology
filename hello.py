@@ -1,9 +1,5 @@
 def app(environ, start_response):
-    sstr = environ.get('QUERY_STRING').split("&")
-    body = ""
-    for pair in sstr:
-        body += pair + "\n"
+    body = [bytes(i + '\n', 'ascii') for i in environ['QUERY_STRING'].split('&')]
     response_string = [('Content-type', 'text/plain')]
     start_response('200 OK', response_string)
-    print(bytes(body.strip()))
-    return [body.strip()]
+    return body
