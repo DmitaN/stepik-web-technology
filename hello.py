@@ -3,4 +3,4 @@ def app(environ, start_response):
     print("!!!!!")
     print(q_string)
     print("!!!!!")
-    return iter([data])
+    return q_string
